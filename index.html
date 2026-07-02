@@ -3,25 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Chronos</title>
   <meta name="description" content="Chronos: A Physics-Informed Full-History Framework for Non-Markovian Long-Horizon Manipulation" />
-  <meta name="keywords" content="Chronos, robotics, imitation learning, non-Markovian, long-horizon manipulation, Mamba, IMLE, Schrodinger bridge, RMBench" />
-  <meta name="author" content="Yulin Zhou" />
-
   <link rel="stylesheet" href="static/css/style.css" />
 </head>
-
 <body>
-  <nav class="side-nav">
-    <a class="side-title" href="#top">Chronos</a>
+  <aside class="side-nav">
+    <a class="brand" href="#top">Chronos</a>
     <a href="#overview">Overview</a>
     <a href="#framework">Framework</a>
-    <a href="#findings">Findings</a>
+    <a href="#results">Results</a>
     <a href="#gallery">Gallery</a>
     <a href="#real-robot">Real Robot</a>
     <a href="#bibtex">BibTeX</a>
-  </nav>
+  </aside>
 
   <header class="hero" id="top">
     <div class="container">
@@ -32,52 +27,49 @@
         Yulin Zhou, Yimeng Wang, Nengyu Wang, Shaojia Xing, Shiyun Tu, Xiang Li,
         Jingkai Zhang, Ningbo Jiang, Yuankai Lin, Hua Yang, Xiangrui Zeng, Zhouping Yin
       </p>
-
       <p class="affiliation">Huazhong University of Science and Technology</p>
       <p class="status">Currently under review at <strong>IEEE Transactions on Robotics (T-RO)</strong></p>
 
       <div class="button-row">
-        <a href="https://arxiv.org/abs/2606.30318" target="_blank">arXiv</a>
-        <a href="https://github.com/yulinzhouZYL/Chronos" target="_blank">Code</a>
+        <a href="https://arxiv.org/abs/2606.30318" target="_blank" rel="noopener">arXiv</a>
+        <a href="https://github.com/yulinzhouZYL/Chronos" target="_blank" rel="noopener">Code</a>
         <a href="#gallery">Videos</a>
         <a href="#bibtex">BibTeX</a>
       </div>
 
-      <div class="hero-video-card">
-        <h3>Cover Blocks: Remember Hidden Color-Location Bindings</h3>
-        <p>
-          Across different initial block arrangements, the robot must uncover the blocks in the required
-          <strong>red-green-yellow</strong> order. The strong Markovian baseline pi0.5 suffers from
-          single-frame observation aliasing and dithers in place, while Chronos preserves the hidden
-          color-location memory and completes the sequence.
-        </p>
+      <div class="hero-card">
+        <div class="hero-card-head">
+          <h3>Cover Blocks: Hidden Color-Location Memory</h3>
+          <p>
+            From different starting block orders, the robot must uncover the blocks in
+            <strong>red-green-yellow</strong> order. pi0.5 confuses similar observations and stalls,
+            while Chronos remembers the hidden color positions and finishes the task.
+          </p>
+        </div>
 
-        <div class="quad-grid">
-          <div class="video-box">
-            <div class="video-label baseline">pi0.5: Single-Frame Aliasing</div>
+        <div class="hero-grid">
+          <div class="video-panel">
+            <div class="pill baseline">pi0.5: Single-Frame Aliasing</div>
             <video autoplay muted loop playsinline controls preload="auto">
-              <source src="static/videos/rw4_pi05.mp4" type="video/mp4" />
+              <source src="static/videos/rw4_pi05.mp4" type="video/mp4">
             </video>
           </div>
-
-          <div class="video-box">
-            <div class="video-label ours">Chronos: Layout 1</div>
+          <div class="video-panel">
+            <div class="pill ours">Chronos: Layout 1</div>
             <video autoplay muted loop playsinline controls preload="auto">
-              <source src="static/videos/rw4_chronos.mp4" type="video/mp4" />
+              <source src="static/videos/rw4_chronos.mp4" type="video/mp4">
             </video>
           </div>
-
-          <div class="video-box">
-            <div class="video-label ours">Chronos: Layout 2</div>
+          <div class="video-panel">
+            <div class="pill ours">Chronos: Layout 2</div>
             <video autoplay muted loop playsinline controls preload="auto">
-              <source src="static/videos/rw4-2.mp4" type="video/mp4" />
+              <source src="static/videos/rw4-2.mp4" type="video/mp4">
             </video>
           </div>
-
-          <div class="video-box">
-            <div class="video-label ours">Chronos: Layout 3</div>
+          <div class="video-panel">
+            <div class="pill ours">Chronos: Layout 3</div>
             <video autoplay muted loop playsinline controls preload="auto">
-              <source src="static/videos/rw4-3.mp4" type="video/mp4" />
+              <source src="static/videos/rw4-3.mp4" type="video/mp4">
             </video>
           </div>
         </div>
@@ -85,69 +77,39 @@
     </div>
   </header>
 
+  <section class="metrics-strip">
+    <div class="container metrics-grid">
+      <div class="metric-card">
+        <div class="metric-value">73.6%</div>
+        <div class="metric-label">RMBench average success</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">+62.4</div>
+        <div class="metric-label">points over pi0.5</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">10×</div>
+        <div class="metric-label">fewer parameters than pi0.5</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">78%</div>
+        <div class="metric-label">real-world average success</div>
+      </div>
+    </div>
+  </section>
+
   <main>
-    <section class="metrics-strip">
-      <div class="container metric-grid">
-        <div class="metric">
-          <div class="metric-value">73.6%</div>
-          <div class="metric-label">RMBench average success</div>
-        </div>
-        <div class="metric">
-          <div class="metric-value">+62.4</div>
-          <div class="metric-label">points over pi0.5</div>
-        </div>
-        <div class="metric">
-          <div class="metric-value">10×</div>
-          <div class="metric-label">fewer parameters than pi0.5</div>
-        </div>
-        <div class="metric">
-          <div class="metric-value">78%</div>
-          <div class="metric-label">real-world average success</div>
-        </div>
-      </div>
-
-      <div class="container compact-intro">
-        <div class="topline">
-          Full-History SSM &nbsp;|&nbsp; IMLE Action Prior &nbsp;|&nbsp; Second-Order Action Bridge
-        </div>
-
-        <p class="abstract-lead">
-          Chronos treats observation history as the latent state of robot policy dynamics and refines
-          actions through acceleration-driven second-order dynamics.
-        </p>
-      </div>
-    </section>
-
     <section class="section" id="overview">
-      <div class="container">
+      <div class="container narrow">
         <h2>Overview</h2>
-        <p>
-          Memory-dependent manipulation violates the Markovian shortcut: the same current
-          observation can require different actions after different histories. Chronos addresses this
-          problem by elevating observation history from auxiliary context to the latent state of the
-          policy dynamics. At every physical control step, Chronos forms one state-representative
-          token from observation and proprioception, propagates the full causal history with a
-          selective state space model, generates a multimodal coarse action prior with IMLE, and
-          refines the prior through a second-order Schrodinger-inspired acceleration bridge.
+        <p class="lead">
+          Chronos addresses non-Markovian long-horizon manipulation by treating observation history
+          as the latent state of the policy dynamics. At each physical control step, Chronos forms
+          one state-representative token from observation and proprioception, propagates the full
+          causal history with a selective state space model, generates a multimodal coarse action
+          prior with IMLE, and refines that prior with a second-order Schrodinger-inspired
+          acceleration bridge.
         </p>
-
-        <div class="teaser-card">
-          <div class="teaser-text">
-            <h3>History is state.</h3>
-            <p>
-              Chronos is designed for non-Markovian long-horizon manipulation, where correct
-              behavior depends on hidden task phase, action order, and previously observed
-              information.
-            </p>
-          </div>
-          <div class="teaser-text">
-            <h3>Actions are second-order.</h3>
-            <p>
-              Instead of directly denoising or transporting actions, Chronos refines action chunks
-              through learned acceleration fields for smoother robot motion.
-            </p>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -160,17 +122,17 @@
             <div class="step-index">1</div>
             <h3>Full-History State Encoding</h3>
             <p>
-              One token is formed at each physical control step. A selective state space model
-              propagates the full causal history as the policy state.
+              One token is aligned with each physical control step. A selective state space model
+              propagates the complete causal history as the policy state.
             </p>
           </div>
 
           <div class="framework-card">
             <div class="step-index">2</div>
-            <h3>IMLE Coarse Action Prior</h3>
+            <h3>IMLE Action Prior</h3>
             <p>
-              A history-conditioned IMLE generator samples multimodal action chunks, preserving
-              multiple plausible future behaviors.
+              A history-conditioned IMLE generator captures multimodal coarse action chunks, keeping
+              multiple feasible modes available for downstream refinement.
             </p>
           </div>
 
@@ -178,47 +140,41 @@
             <div class="step-index">3</div>
             <h3>Second-Order Action Bridge</h3>
             <p>
-              A Schrodinger-inspired acceleration field refines the coarse action prior into
-              smoother and more physically grounded robot motion.
+              A Schrodinger-inspired acceleration field refines the coarse action prior into smoother
+              and more physically grounded robot motion.
             </p>
           </div>
         </div>
 
-        <div class="figure-placeholder">
-          <img src="static/images/framework.png" alt="Chronos framework figure" />
-          <p class="caption">
-            Full-history state propagation, multimodal coarse action-prior generation, and
-            acceleration-driven second-order refinement.
-          </p>
+        <div class="figure-card">
+          <img src="static/images/framework.png" alt="Chronos framework figure">
+          <p class="caption">Full-history state propagation, multimodal action-prior generation, and acceleration-driven second-order refinement.</p>
         </div>
       </div>
     </section>
 
-    <section class="section" id="findings">
+    <section class="section" id="results">
       <div class="container">
         <h2>Key Results</h2>
-
-        <div class="finding-grid">
-          <div class="finding-card">
+        <div class="results-grid">
+          <div class="result-card">
             <h3>Memory-Dependent Control</h3>
             <p>
-              Chronos achieves <strong>73.6%</strong> average success on RMBench, outperforming
-              pi0.5 by <strong>+62.4 percentage points</strong> with <strong>10× fewer parameters</strong>.
+              On RMBench, Chronos reaches <strong>73.6%</strong> average success, outperforming
+              pi0.5 by <strong>+62.4 absolute percentage points</strong> with <strong>10× fewer parameters</strong>.
             </p>
           </div>
-
-          <div class="finding-card">
+          <div class="result-card">
             <h3>Compact Yet Strong</h3>
             <p>
-              Chronos surpasses the memory VLA Mem-0 by <strong>22.8 points</strong> while using
-              over <strong>30× fewer parameters</strong>.
+              Chronos surpasses the memory-aware VLA Mem-0 by <strong>22.8 points</strong> while
+              using over <strong>30× fewer parameters</strong>.
             </p>
           </div>
-
-          <div class="finding-card">
+          <div class="result-card">
             <h3>Real-World Validation</h3>
             <p>
-              In real-world dual-arm experiments with a single RGB camera, Chronos achieves
+              In real-world dual-arm experiments using a single RGB camera, Chronos achieves
               <strong>78%</strong> average success and <strong>72%</strong> on memory-dependent tasks.
             </p>
           </div>
@@ -230,24 +186,23 @@
       <div class="container">
         <h2>Simulation and Benchmark Gallery</h2>
         <p class="section-intro">
-          Side-by-side videos compare Chronos against alternative action-generation designs or
-          stronger baselines. For the ALOHA precision insertion experiment, we compare a diffusion
-          action head with the full Chronos second-order action bridge.
+          In ALOHA precision insertion, Chronos with the second-order action bridge yields smoother,
+          more stable motion than the diffusion action head.
         </p>
 
-        <div class="comparison-card">
+        <div class="comparison-card aloha-card">
           <h3>ALOHA Precision Insertion</h3>
-          <div class="pair-grid">
-            <div class="video-box">
-              <div class="video-label baseline">Diffusion Action Head</div>
+          <div class="aloha-stack">
+            <div class="video-panel">
+              <div class="pill baseline">Diffusion Action Head</div>
               <video autoplay muted loop playsinline controls preload="auto">
-                <source src="static/videos/ALOHA_DIFFUSION.mp4" type="video/mp4" />
+                <source src="static/videos/ALOHA_DIFFUSION.mp4" type="video/mp4">
               </video>
             </div>
-            <div class="video-box">
-              <div class="video-label ours">Chronos Second-Order Bridge</div>
+            <div class="video-panel">
+              <div class="pill ours">Chronos Second-Order Bridge</div>
               <video autoplay muted loop playsinline controls preload="auto">
-                <source src="static/videos/ALOHA_SB.mp4" type="video/mp4" />
+                <source src="static/videos/ALOHA_SB.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -267,16 +222,16 @@
         <div class="comparison-card">
           <h3>Task 1: Long-Horizon Sequence</h3>
           <div class="pair-grid">
-            <div class="video-box">
-              <div class="video-label baseline">pi0.5</div>
+            <div class="video-panel">
+              <div class="pill baseline">pi0.5</div>
               <video autoplay muted loop playsinline controls preload="auto">
-                <source src="static/videos/rw1_pi05.mp4" type="video/mp4" />
+                <source src="static/videos/rw1_pi05.mp4" type="video/mp4">
               </video>
             </div>
-            <div class="video-box">
-              <div class="video-label ours">Chronos</div>
+            <div class="video-panel">
+              <div class="pill ours">Chronos</div>
               <video autoplay muted loop playsinline controls preload="auto">
-                <source src="static/videos/rw1_chronos.mp4" type="video/mp4" />
+                <source src="static/videos/rw1_chronos.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -285,16 +240,16 @@
         <div class="comparison-card">
           <h3>Task 2: Visible Manipulation</h3>
           <div class="pair-grid">
-            <div class="video-box">
-              <div class="video-label baseline">pi0.5</div>
+            <div class="video-panel">
+              <div class="pill baseline">pi0.5</div>
               <video autoplay muted loop playsinline controls preload="auto">
-                <source src="static/videos/rw2_pi05.mp4" type="video/mp4" />
+                <source src="static/videos/rw2_pi05.mp4" type="video/mp4">
               </video>
             </div>
-            <div class="video-box">
-              <div class="video-label ours">Chronos</div>
+            <div class="video-panel">
+              <div class="pill ours">Chronos</div>
               <video autoplay muted loop playsinline controls preload="auto">
-                <source src="static/videos/rw2_chronos.mp4" type="video/mp4" />
+                <source src="static/videos/rw2_chronos.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -303,16 +258,16 @@
         <div class="comparison-card">
           <h3>Task 3: Memory-Dependent Extension</h3>
           <div class="pair-grid">
-            <div class="video-box">
-              <div class="video-label baseline">pi0.5</div>
+            <div class="video-panel">
+              <div class="pill baseline">pi0.5</div>
               <video autoplay muted loop playsinline controls preload="auto">
-                <source src="static/videos/rw3_pi05.mp4" type="video/mp4" />
+                <source src="static/videos/rw3_pi05.mp4" type="video/mp4">
               </video>
             </div>
-            <div class="video-box">
-              <div class="video-label ours">Chronos</div>
+            <div class="video-panel">
+              <div class="pill ours">Chronos</div>
               <video autoplay muted loop playsinline controls preload="auto">
-                <source src="static/videos/rw3_chronos.mp4" type="video/mp4" />
+                <source src="static/videos/rw3_chronos.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -321,9 +276,8 @@
     </section>
 
     <section class="section light" id="bibtex">
-      <div class="container">
+      <div class="container narrow">
         <h2>BibTeX</h2>
-
         <pre><code>@article{zhou2026chronos,
   title={Chronos: A Physics-Informed Full-History Framework for Non-Markovian Long-Horizon Manipulation},
   author={Zhou, Yulin and Wang, Yimeng and Wang, Nengyu and Xing, Shaojia and Tu, Shiyun and Li, Xiang and Zhang, Jingkai and Jiang, Ningbo and Lin, Yuankai and Yang, Hua and Zeng, Xiangrui and Yin, Zhouping},
@@ -343,15 +297,14 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      const videos = document.querySelectorAll("video");
-      videos.forEach(function (video) {
+      document.querySelectorAll("video").forEach(function (video) {
         video.muted = true;
         video.loop = true;
         video.playsInline = true;
         video.controls = true;
-        const playPromise = video.play();
-        if (playPromise !== undefined) {
-          playPromise.catch(function () {});
+        const p = video.play();
+        if (p !== undefined) {
+          p.catch(function () {});
         }
       });
     });
