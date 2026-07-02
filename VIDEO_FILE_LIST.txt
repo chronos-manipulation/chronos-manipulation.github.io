@@ -1,0 +1,19 @@
+Required video filenames for Chronos project page:
+
+static/videos/ALOHA_DIFFUSION.mp4
+static/videos/ALOHA_SB.mp4
+
+static/videos/rw1_pi05.mp4
+static/videos/rw1_chronos.mp4
+
+static/videos/rw2_pi05.mp4
+static/videos/rw2_chronos.mp4
+
+static/videos/rw3_pi05.mp4
+static/videos/rw3_chronos.mp4
+
+static/videos/rw4_pi05.mp4
+static/videos/rw4_chronos.mp4
+
+static/videos/rw4-2.mp4
+static/videos/rw4-3.mp4
